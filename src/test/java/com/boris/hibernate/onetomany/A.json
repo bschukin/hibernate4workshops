@@ -1,0 +1,37 @@
+  {
+  "name": "A",
+  "sqlTable": "A",
+  "uniqueKey": {
+    "name": "id"
+  },
+  "groups": [
+    "default",
+    {
+      "email": {
+        "column": "email_address"
+      },
+      "b": {
+        "column": "b_id",
+        "reference": "N-1",
+        "to": "B"
+      }
+    },
+    "group1",
+    {
+      "slaves": {
+        "reference": "1-N",
+        "to": "C",
+        "join-column": "a_id"
+        },
+      "mmList": {
+        "reference": "N-N",
+        "to": "S",
+        "join-table": "AS",
+        "join-columns": {
+          "this": "a_id",
+          "their": "s_id"
+        }
+      }
+    }
+  ]
+}
